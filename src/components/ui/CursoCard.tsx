@@ -1,15 +1,16 @@
 import { Card } from "react-bootstrap"
-import { Curso } from "../../http/api"
+import { ICurso } from "../../http/api"
 
 interface CursoCardProps {
-    curso: Curso;
+    curso: ICurso;
+    onClick?: () => void; 
 }
 
-export const CursoCard = ({curso} : CursoCardProps) => {
+export const CursoCard = ({curso , onClick} : CursoCardProps) => {
 
     return (
         <div>
-            <Card style={{ width: '18rem' }}>
+            <Card onClick={onClick} style={{ width: '18rem', cursor: 'pointer' }}>
                 <Card.Body>
                     <Card.Title>{curso.nombre}</Card.Title>
                     <Card.Text>
@@ -17,6 +18,7 @@ export const CursoCard = ({curso} : CursoCardProps) => {
                     </Card.Text>
                     
                 </Card.Body>
-            </Card></div>
+            </Card>
+        </div>
     )
 }
